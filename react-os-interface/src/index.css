@@ -1,0 +1,104 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import "~slick-carousel/slick/slick.css";
+@import "~slick-carousel/slick/slick-theme.css";
+
+
+.desktop-background {
+  background-image: url('../src/assets/bg.jpg');
+  background-size: cover;
+  background-position: center;
+}
+.window-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #333;
+  color: #fff;
+  padding: 0.5rem;
+  border-radius: 0.25rem 0.25rem 0 0;
+}
+
+.window-content {
+  padding: 1rem;
+}
+
+
+
+.navbar {
+  top: 0;
+  left: 0;
+  width: 100%;
+  background-color: #333;
+  color: white;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.5rem 1rem;
+}
+
+.navbar-left, .navbar-right {
+  display: flex;
+  align-items: center;
+}
+
+.navbar-right {
+  justify-content: flex-end;
+}
+
+.navbar .icon {
+  margin-right: 1rem;
+}
+
+.skill-progress {
+  transition: width 0.7s ease-in-out;
+}
+.selection-box {
+  position: absolute;
+  border: 2px solid blue;
+  background-color: rgba(173, 216, 230, 0.5);
+}
+
+.folder {
+  cursor: pointer;
+  text-align: center;
+}
+
+.folder .icon {
+  margin-bottom: 10px;
+}
+
+.experience-card {
+  transition: transform 0.2s;
+}
+
+.experience-card:hover {
+  transform: scale(1.05);
+}
+
+
+.taskbar-icon {
+  display: flex;
+  align-items: center;
+  
+  border-radius: 0.5rem;
+  transition: background 0.3s;
+}
+
+.taskbar-bg {
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+.project-icon {
+
+  transition: transform 0.3s ease;
+}
+
+.project-icon:hover {
+  transform: scale(2);
+}
