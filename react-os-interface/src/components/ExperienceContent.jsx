@@ -46,25 +46,37 @@ const experiences = [
 
 function ExperienceContent() {
   return (
-    <div className="p-4">
-      <h2 className="text-2xl font-bold mb-4">Experience</h2>
-      <div className="grid grid-cols-1 gap-4">
-        {experiences.map(exp => (
-          <div key={exp.id} className="experience-card border p-4 rounded shadow-lg">
-            <div className="icon-title flex items-center mb-2">
-              <div className="icon mr-2">
-                {exp.icon}
+    <div className="flex">
+      <div className="w-1/4 bg-gray-800 text-white p-4">
+        <h3 className="text-lg font-bold mb-4">Navigation</h3>
+        <ul className="space-y-2">
+          {experiences.map(exp => (
+            <li key={exp.id} className="hover:bg-gray-700 p-2 rounded cursor-pointer">
+              {exp.title}
+            </li>
+          ))}
+        </ul>
+      </div>
+      <div className="w-3/4 p-4 bg-gray-900 text-white rounded-r-lg">
+        <h2 className="text-2xl font-bold mb-4">Experience</h2>
+        <div className="grid grid-cols-1 gap-4">
+          {experiences.map(exp => (
+            <div key={exp.id} className="experience-card border p-4 rounded shadow-lg bg-gray-800">
+              <div className="icon-title flex items-center mb-2">
+                <div className="icon mr-2 text-xl">
+                  {exp.icon}
+                </div>
+                <div className="title-company">
+                  <h3 className="text-xl font-semibold">{exp.title}</h3>
+                  <p className="text-gray-400">{exp.company} - {exp.date}</p>
+                </div>
               </div>
-              <div className="title-company">
-                <h3 className="text-xl font-semibold">{exp.title}</h3>
-                <p className="text-gray-500">{exp.company} - {exp.date}</p>
+              <div className="details text-gray-300">
+                <p>{exp.details}</p>
               </div>
             </div>
-            <div className="details">
-              <p>{exp.details}</p>
-            </div>
-          </div>
-        ))}
+          ))}
+        </div>
       </div>
     </div>
   );

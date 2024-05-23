@@ -31,7 +31,7 @@ function TicTacToe() {
   }
 
   return (
-    <div className="p-4 bg-white rounded-lg shadow-lg">
+    <div className="p-4 bg-white text-black rounded-lg shadow-lg">
       <div className="text-2xl font-bold mb-4">Tic-Tac-Toe</div>
       <div className="grid grid-cols-3 gap-2">
         {squares.map((square, i) => (
