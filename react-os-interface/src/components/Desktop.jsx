@@ -133,11 +133,11 @@ function Desktop() {
             id={window.id}
             title={window.title}
             content={window.content}
-            onClose={() => closeWindow(window.id)}
-            onMinimize={() => minimizeWindow(window.id)}
+            onClose={closeWindow}
+            onMinimize={minimizeWindow}
             isMinimized={window.isMinimized}
             isMaximized={window.isMaximized}
-            onMaximize={() => maximizeWindow(window.id)}
+            onMaximize={maximizeWindow}
           />
         )
       )}
