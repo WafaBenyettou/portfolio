@@ -1,14 +1,16 @@
 import React from 'react';
-import { FaGithub, FaLinkedin, FaTwitter, FaEnvelope, FaTerminal, FaHackerNews, FaMedium } from 'react-icons/fa';
+import { FaGithub, FaLinkedin, FaTwitter, FaEnvelope, FaTerminal, FaHackerNews, FaMedium, FaPhone, FaPhoneAlt } from 'react-icons/fa';
+import { MdEmail } from "react-icons/md";
 import terminalIcon from '../assets/Linux-Terminal-icon.png';
 
 function Taskbar({ openTerminal }) {
   const socialMedia = [
     { id: 1, title: 'GitHub', icon: <FaGithub className="w-10 h-10 bg-black rounded-full" />, link: 'https://github.com/WafaBenyettou' },
-    { id: 2, title: 'LinkedIn', icon: <FaLinkedin className="w-10 h-10" />, link: 'https://www.linkedin.com/in/wafa-nesrine-benyettou-726b25215/' },
-    { id: 3, title: 'Twitter', icon: <FaTwitter className="w-10 h-10 text-blue" />, link: 'https://twitter.com/WafaoBen' },
+    { id: 2, title: 'LinkedIn', icon: <FaLinkedin className="w-10 h-10 linkedin bg-white rounded" />, link: 'https://www.linkedin.com/in/wafa-nesrine-benyettou-726b25215/' },
+    { id: 3, title: 'Twitter', icon: <FaTwitter className="w-10 h-10 twitter rounded p-[2px]" />, link: 'https://twitter.com/WafaoBen' },
     { id: 4, title: 'Medium', icon: <FaMedium className="w-10 h-10 bg-black" />, link: 'https://medium.com/@benwafa951' },
-    { id: 5, title: 'Email', icon: <FaEnvelope className="w-10 h-10" />, link: 'mailto:benyettouwafa16@gmail.com' },
+    { id: 5, title: 'Email', icon: <MdEmail className="w-10 h-10 bg-black rounded p-2" />, link: 'mailto:benyettouwafa16@gmail.com' },
+    { id: 5, title: 'Phone', icon: <FaPhoneAlt className="w-10 h-10 phone p-2 rounded bg-white" />, link: '0664708645' },
   ];
 
   return (

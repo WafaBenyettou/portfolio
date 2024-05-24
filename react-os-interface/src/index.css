@@ -24,6 +24,26 @@ body, html {
   border-radius: 0.25rem 0.25rem 0 0;
 }
 
+.phone{
+
+  color: #000724;
+
+}
+
+.linkedin{
+
+  color: #0072b1;
+
+}
+
+
+.twitter{
+
+  color: #1DA1F2;
+  background-color: white;
+
+}
+
 .window-content {
   padding: 1rem;
 }
@@ -92,7 +112,7 @@ body, html {
 
 .taskbar-bg {
   background: rgba(255, 255, 255, 0.1);
-  backdrop-filter: blur(10px);
+  backdrop-filter: blur(25px);
   -webkit-backdrop-filter: blur(10px);
   border: 1px solid rgba(255, 255, 255, 0.3);
 }
