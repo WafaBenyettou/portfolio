@@ -24,6 +24,7 @@ function Desktop() {
   const [windows, setWindows] = useState([]);
   const [minimizedWindows, setMinimizedWindows] = useState([]);
   const [contextMenu, setContextMenu] = useState({ visible: false, position: { x: 0, y: 0 }, options: [] });
+  const [selectedIcons, setSelectedIcons] = useState([]);
 
   const openWindow = (title, content) => {
     const existingWindow = windows.find(window => window.title === title);
@@ -114,12 +115,12 @@ function Desktop() {
   ];
 
   return (
-    <div className="desktop-background min-h-screen p-4 relative" onContextMenu={handleRightClick}>
+    <div className="desktop-background min-h-screen p-4 relative" onContextMenu={handleRightClick} style={{ touchAction: 'manipulation' }}>
       <Navbar />
       <SelectionBox onSelection={handleSelect} />
       <div className="grid grid-cols-3 gap-4 absolute top-16 left-4">
         {icons.map(icon => (
-          <div key={icon.id} id={icon.id} onDoubleClick={() => openWindow(icon.title, icon.content)}>
+          <div key={icon.id} id={icon.id} onDoubleClick={() => openWindow(icon.title, icon.content)} onTouchEnd={() => openWindow(icon.title, icon.content)}>
             <Icon title={icon.title} icon={icon.icon} />
           </div>
         ))}
