@@ -3,17 +3,8 @@ import React, { useState } from 'react';
 function Terminal({ onClose }) {
   const [input, setInput] = useState('');
   const [output, setOutput] = useState([
-    "@@@,-.@@@@@@@_,---._@__@@/@@\\",
-    "@@/@)@@@@.-'@@@@@@@`./@/@@@\\",
-    "@( (@@@,'@@@@@@@@@@@@`/@/@@/|",
-    "@\\@@`-\"@@@@@@@@@@@@@'\\@/@@|",
-    "@@`.@@@@@@@@@@@@,@@@\\@\\@/@@|",
-    "@@/`.@@@@@@@@,@'-`----Y@@@|",
-    "@(@@@@@@@@@@@;@@@@@@@@|@@@'",
-    "@@|@,-.@@@@,-'@@@@@@@@|@@/",
-    "@@|@|@(@@|@@@@@@@@hja@|@/",
-    "@@)@|@\\@`.___________|/",
-    "@@`--'@@`--'"
+    "/*where there is a shell, there is a way*/",
+    "- Shellmates club 2011 - ∞",
   ]);
 
   const handleInputChange = (e) => {
