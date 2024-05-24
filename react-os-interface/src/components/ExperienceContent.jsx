@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useRef } from 'react';
 import { FaFileAlt, FaLaptopCode, FaUserGraduate, FaShieldAlt, FaHandsHelping } from 'react-icons/fa';
 
 const experiences = [
@@ -45,14 +45,23 @@ const experiences = [
 ];
 
 function ExperienceContent() {
+  const refs = experiences.reduce((acc, value) => {
+    acc[value.id] = useRef();
+    return acc;
+  }, {});
+
+  const handleScrollTo = (id) => {
+    refs[id].current.scrollIntoView({ behavior: 'smooth' });
+  };
+
   return (
     <div className="flex">
       <div className="w-1/4 bg-gray-800 text-white p-4">
-        <h3 className="text-lg font-bold mb-4">Navigation</h3>
+        <h3 className="text-lg font-bold mb-4 text-pink-500">Navigation</h3>
         <ul className="space-y-2">
           {experiences.map(exp => (
-            <li key={exp.id} className="hover:bg-gray-700 p-2 rounded cursor-pointer">
-              {exp.title}
+            <li key={exp.id} className="hover:bg-gray-700 hover:border-pink-400  hover:border hover:text-pink-400 p-2 rounded cursor-pointer " onClick={() => handleScrollTo(exp.id)}>
+             <strong> {exp.company}</strong>
             </li>
           ))}
         </ul>
@@ -61,14 +70,14 @@ function ExperienceContent() {
         <h2 className="text-2xl font-bold mb-4">Experience</h2>
         <div className="grid grid-cols-1 gap-4">
           {experiences.map(exp => (
-            <div key={exp.id} className="experience-card border p-4 rounded shadow-lg bg-gray-800">
+            <div key={exp.id} ref={refs[exp.id]} className="experience-card border p-4 rounded shadow-lg bg-gray-800 hover:border-pink-400 hover:text-pink-400">
               <div className="icon-title flex items-center mb-2">
                 <div className="icon mr-2 text-xl">
                   {exp.icon}
                 </div>
                 <div className="title-company">
                   <h3 className="text-xl font-semibold">{exp.title}</h3>
-                  <p className="text-gray-400">{exp.company} - {exp.date}</p>
+                  <p className="text-pink-400">{exp.company} - {exp.date}</p>
                 </div>
               </div>
               <div className="details text-gray-300">

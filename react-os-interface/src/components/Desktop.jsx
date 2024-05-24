@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import Window from './Window';
 import Icon from './Icon';
 import Navbar from './Navbar';
@@ -8,6 +8,8 @@ import experienceFolderIcon from '../assets/folder-purple.webp';
 import aboutIcon from '../assets/txt-64.webp';
 import gameIcon from '../assets/tictIcon.png';
 import terminalIcon from '../assets/Linux-Terminal-icon.png';
+import cvIcon from '../assets/cv-icon.png';
+import CVFile from '../assets/Wafa_Nesrine_BENYETTOU_CV.pdf';
 import ContextMenu from './ContextMenu';
 import AboutMe from './AboutMe';
 import ProjectsContent from './ProjectsContent';
@@ -100,6 +102,7 @@ function Desktop() {
     });
     setSelectedIcons(selectedIcons);
   };
+
   const icons = [
     { id: 'aboutIcon', title: 'About.txt', icon: aboutIcon, content: <AboutMe /> },
     { id: 'projectsIcon', title: 'Projects', icon: projectIcon, content: <ProjectsContent openProject={openWindow} /> },
@@ -107,13 +110,14 @@ function Desktop() {
     { id: 'experienceIcon', title: 'Experience', icon: experienceFolderIcon, content: <ExperienceContent /> },
     { id: 'gameIcon', title: 'Tic Tac Toe', icon: gameIcon, content: <TicTacToe /> },
     { id: 'terminalIcon', title: 'Terminal', icon: terminalIcon, content: <Terminal onClose={() => closeWindow(windows.length)} /> },
+    { id: 'cvIcon', title: 'Download CV', icon: cvIcon, content: <a href={CVFile} download="Wafa_Nesrine_BENYETTOU_CV.pdf" className="block w-full h-full" /> },
   ];
 
   return (
     <div className="desktop-background min-h-screen p-4 relative" onContextMenu={handleRightClick}>
       <Navbar />
       <SelectionBox onSelection={handleSelect} />
-      <div className="grid grid-cols-2 gap-4 absolute top-16 left-4">
+      <div className="grid grid-cols-3 gap-4 absolute top-16 left-4">
         {icons.map(icon => (
           <div key={icon.id} id={icon.id} onDoubleClick={() => openWindow(icon.title, icon.content)}>
             <Icon title={icon.title} icon={icon.icon} />
@@ -128,11 +132,11 @@ function Desktop() {
             id={window.id}
             title={window.title}
             content={window.content}
-            onClose={closeWindow}
-            onMinimize={minimizeWindow}
+            onClose={() => closeWindow(window.id)}
+            onMinimize={() => minimizeWindow(window.id)}
             isMinimized={window.isMinimized}
             isMaximized={window.isMaximized}
-            onMaximize={maximizeWindow}
+            onMaximize={() => maximizeWindow(window.id)}
           />
         )
       )}

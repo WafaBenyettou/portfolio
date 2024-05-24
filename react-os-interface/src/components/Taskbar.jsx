@@ -1,42 +1,37 @@
 import React from 'react';
-import {FaTerminal } from 'react-icons/fa';
-import ransomware from '../assets/ransomware-icon.jpg';
-import babygardians from '../assets/babygard.png';
-import salamat from '../assets/ransomware.png';
-import menu from '../assets/square.png'
-import terminal from '../assets/Linux-Terminal-icon.png';
+import { FaGithub, FaLinkedin, FaTwitter, FaEnvelope, FaTerminal, FaHackerNews, FaMedium } from 'react-icons/fa';
+import terminalIcon from '../assets/Linux-Terminal-icon.png';
 
-function Taskbar({openProject, minimizedWindows, restoreWindow, openTerminal}) {
-  const projects = [
-    { id: 1, title: 'RanSomeWhere', icon: ransomware, content: 'Details about RanSomeWhere' },
-    { id: 2, title: 'BabyGarduians', icon: babygardians, content: 'Details about BabyGarduians' },
-    { id: 3, title: 'SALAMAT', icon: salamat, content: 'Details about SALAMAT' },
-    { id: 4, title: 'RanSomeWhere', icon: ransomware, content: 'Details about RanSomeWhere' },
-    { id: 5, title: 'BabyGarduians', icon: babygardians, content: 'Details about BabyGarduians' },
-    { id: 6, title: 'SALAMAT', icon: menu, content: 'Details about SALAMAT' },
+function Taskbar({ openTerminal }) {
+  const socialMedia = [
+    { id: 1, title: 'GitHub', icon: <FaGithub className="w-10 h-10 bg-black rounded-full" />, link: 'https://github.com/WafaBenyettou' },
+    { id: 2, title: 'LinkedIn', icon: <FaLinkedin className="w-10 h-10" />, link: 'https://www.linkedin.com/in/wafa-nesrine-benyettou-726b25215/' },
+    { id: 3, title: 'Twitter', icon: <FaTwitter className="w-10 h-10 text-blue" />, link: 'https://twitter.com/WafaoBen' },
+    { id: 4, title: 'Medium', icon: <FaMedium className="w-10 h-10 bg-black" />, link: 'https://medium.com/@benwafa951' },
+    { id: 5, title: 'Email', icon: <FaEnvelope className="w-10 h-10" />, link: 'mailto:benyettouwafa16@gmail.com' },
   ];
 
   return (
     <div className="fixed bottom-7 left-1/2 transform -translate-x-1/2 text-white taskbar-bg flex items-center p-2 space-x-4 rounded-lg shadow-lg z-50">
       <div className="flex items-center space-x-2">
-      <div 
-          className="taskbar-icon flex items-center cursor-pointer p-2  rounded"
+        <div 
+          className="taskbar-icon flex items-center cursor-pointer p-2 rounded"
           onClick={openTerminal}
         >
-          <img src={terminal} className='w-8 h-8 project-icon'/>
-        
+          <img src={terminalIcon} className="w-8 h-8 project-icon taskbar-icon" alt="Terminal" />
         </div>
-        {projects.map(project => (
-          <div 
-            key={project.id} 
-            className="taskbar-icon flex items-center cursor-pointer p-2 rounded"
-            onClick={() => openProject(project.title, project.content)}
+        {socialMedia.map(platform => (
+          <a 
+            key={platform.id} 
+            href={platform.link} 
+            target="_blank" 
+            rel="noopener noreferrer" 
+            className="taskbar-icon project-icon flex items-center cursor-pointer p-2 rounded"
+            title={platform.title}
           >
-            <img src={project.icon} alt={project.title} className="project-icon w-10 h-10 mr-2 rounded-full" />
-           
-          </div>
+            {platform.icon}
+          </a>
         ))}
-      
       </div>
     </div>
   );

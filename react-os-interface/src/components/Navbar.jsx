@@ -2,8 +2,8 @@ import { useState, useEffect } from 'react';
 import { FaBars, FaMemory, FaMicrochip, FaBell, FaNetworkWired } from 'react-icons/fa';
 
 function Navbar() {
-  const [cpuUsage, setCpuUsage] = useState(30); // Mocked CPU usage
-  const [memoryUsage, setMemoryUsage] = useState(45); // Mocked Memory usage
+  const [cpuUsage, setCpuUsage] = useState(30); 
+  const [memoryUsage, setMemoryUsage] = useState(45); 
   const [time, setTime] = useState(new Date().toLocaleTimeString());
 
   useEffect(() => {
