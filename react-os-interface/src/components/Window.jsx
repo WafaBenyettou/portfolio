@@ -20,7 +20,9 @@ function Window({ id, title, content, onClose, onMinimize, onMaximize, isMinimiz
           <span className="font-bold flex-grow text-center">{title}</span>
           <div className="w-6"></div>
         </div>
-        <div className="bg-gray-900 text-white p-4 overflow-auto no-drag">{content}</div>
+        <div className="bg-gray-900 text-white p-4 overflow-y-auto no-drag" style={{ maxHeight: 'calc(100vh - 50px)' }}>
+          {content}
+        </div>
       </div>
     </Draggable>
   );
